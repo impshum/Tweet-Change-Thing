@@ -3,13 +3,8 @@ import tweepy
 import json
 import os
 import re
+from config import *
 
-target_tag = '#beepboop'
-
-consumer_key = 'XXXX'
-consumer_secret = 'XXXX'
-access_key = 'XXXX-XXXX'
-access_secret = 'XXXX'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
