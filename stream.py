@@ -31,15 +31,14 @@ class PrintListener(tweepy.StreamListener):
                     if tag.startswith('#'):
                         tags.append(tag.strip(','))
 
+                print(tags)
+
                 if tags:
                     tags.remove(target_tag)
+                    print(tags)
                     for tag in tags:
-                        match = re.search(
-                            r'^#(?:[0-9a-fA-F]{3}){1,2}$', tag[:-1])
-                        if match:
-                            print('Got one!')
                         with open(tweet_path, 'w')as f:
-                            f.write(match.group())
+                            f.write(tag)
 
         except Exception as e:
             print(e)
