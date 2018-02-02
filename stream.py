@@ -31,11 +31,8 @@ class PrintListener(tweepy.StreamListener):
                     if tag.startswith('#'):
                         tags.append(tag.strip(','))
 
-                print(tags)
-
                 if tags:
                     tags.remove(target_tag)
-                    print(tags)
                     for tag in tags:
                         with open(tweet_path, 'w')as f:
                             f.write(tag)
