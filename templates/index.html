@@ -1,0 +1,39 @@
+<html>
+<head>
+  <link href="{{ url_for('static', filename='css/styles.css') }}" media="all" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body style="background: {{ color }}">
+
+  <div id="place_for_suggestions"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <script>
+
+
+    function loadlink() {
+
+      $.ajax({
+        url: "/suggestions",
+        type: "get",
+        success: function(data) {
+          $("#place_for_suggestions").html(data);
+        },
+        error: function(xhr) {
+          //Do Something to handle error
+        }
+      });
+
+
+    }
+
+    //loadlink(); // This will run on page load
+    setInterval(function() {
+      loadlink() // this will run after every 5 seconds
+    }, 2000);
+  </script>
+
+</body>
+
+</html>
